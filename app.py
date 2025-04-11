@@ -1,8 +1,8 @@
 import streamlit as st
 from utils import init_openai, init_pinecone, create_index, upsert_resumes, query_resumes
-import fitz  # PyMuPDF
+import fitz  
 
-# Initialize APIs
+
 init_openai()
 init_pinecone()
 
@@ -20,7 +20,7 @@ uploaded_files = st.file_uploader("Upload resumes (PDF or TXT format)", type=["p
 st.subheader("Step 3: Select Number of Candidates")
 num_resumes_to_select = st.number_input("How many resumes to select?", min_value=1, step=1)
 
-# Utility: Extract text using fitz (PyMuPDF)
+
 def extract_text_from_pdf(uploaded_file):
     text = ""
     with fitz.open(stream=uploaded_file.read(), filetype="pdf") as doc:
