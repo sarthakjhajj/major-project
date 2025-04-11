@@ -2,15 +2,15 @@ import streamlit as st
 from openai import OpenAI
 from pinecone import Pinecone, ServerlessSpec
 
-# Set up clients
+
 openai_client = OpenAI(api_key=st.secrets["OPENAI_KEY"])
 pc = Pinecone(api_key=st.secrets["PINECONE_API"])
 
 def init_openai():
-    pass  # no longer needed
+    pass  
 
 def init_pinecone():
-    pass  # no longer needed
+    pass  
 
 def embed_text(text: str) -> list:
     response = openai_client.embeddings.create(
